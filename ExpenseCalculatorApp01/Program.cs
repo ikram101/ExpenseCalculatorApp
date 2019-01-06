@@ -8,20 +8,32 @@ namespace ExpenseCalculatorApp
 {
     class Program
     {
-         
+
         static void Main(string[] args)
         {
-            //FileHelper.ReadFileLineByLine("Trip.txt");
 
-            Console.WriteLine("Enter Filename");
+            Console.WriteLine("Please enter filename (CampingTrips.txt) located in inputoutput project folder.");
             var lineRead = Console.ReadLine();
 
             if (!string.IsNullOrEmpty(lineRead))
             {
-                List<string> fileContent = FileHelper.ReadFileLineByLine(lineRead);
-                List<CampingGroup> campingGroupList = CalculateExpenses.ProcessCampingGroups(fileContent);
+                try
+                {
+                    List<string> fileContent = FileHelper.ReadFileLineByLine(lineRead);
+                    List<CampingGroup> campingGroupList = CalculateExpenses.ProcessCampingGroups(fileContent);
 
-                FileHelper.WriteFile(campingGroupList);
+                    Console.WriteLine();
+                    FileHelper.WriteFile(campingGroupList);
+
+                    Console.WriteLine("\n\nPlease find the file in InputOutput directory.");
+                    Console.WriteLine("\n\n\nClick to exist the program.");
+
+                    Console.ReadLine();
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
             }
 
             else
@@ -38,16 +50,3 @@ namespace ExpenseCalculatorApp
 }
 
 
-
-//                foreach (var g in campingGroupList)
-//                {
-//                    var totalExp = g.GetTotalExpenses();
-//var avg = g.GetAvgExpenses();
-
-//decimal expensePaidPerPerson = 0;
-//                    foreach (var p in g.Participants)
-//                    {
-//                        expensePaidPerPerson = g.GetExpensesPaidPerPerson(p.userId);
-//                        var amountOwned = g.GetAmountOwedPerPerson(p.userId);
-//                    }
-//                }
