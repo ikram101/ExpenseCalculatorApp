@@ -1,1 +1,2 @@
-# ExpenseCalculatorApp
+ExpenseCalculatorApp
+by Syed Ikram Ali
