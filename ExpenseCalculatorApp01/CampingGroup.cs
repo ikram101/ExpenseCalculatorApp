@@ -41,7 +41,6 @@ namespace ExpenseCalculatorApp
                                          select p).Sum();
 
             return expensesPaidPerPerson;
-
         }
 
         public decimal GetAmountOwedPerPerson(int personID)
