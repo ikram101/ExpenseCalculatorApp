@@ -27,10 +27,8 @@ namespace ExpenseCalculatorApp
             }
 
             file.Close();
-
             return myList;
         }
-
 
         public static void WriteFile(IList<CampingGroup> groups)
         {

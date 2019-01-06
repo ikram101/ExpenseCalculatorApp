@@ -26,7 +26,7 @@ namespace ExpenseCalculatorApp
                     FileHelper.WriteFile(campingGroupList);
 
                     Console.WriteLine("\n\nPlease find the file in InputOutput directory.");
-                    Console.WriteLine("\n\n\nClick to exist the program.");
+                    Console.WriteLine("\n\n ------------Enter to exist the program.-----------------");
                     Console.ReadLine();
 
                 }
