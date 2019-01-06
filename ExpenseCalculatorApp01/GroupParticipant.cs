@@ -9,15 +9,15 @@ namespace ExpenseCalculatorApp
      
     public class GroupParticipant
     {
-        public int userId { get; set; }
+        public int participantId { get; set; }
         public int noOfBills { get; set; }
 
         public List<decimal> paymentList { get;  set; }
 
-        public GroupParticipant(int UserId, int NOfBills, List<decimal> PaymentList)
+        public GroupParticipant(int UserId, int NoOfBills, List<decimal> PaymentList)
         {
-            userId = UserId;
-            noOfBills = NOfBills;
+            participantId = UserId;
+            noOfBills = NoOfBills;
             paymentList = PaymentList;
         }
     }

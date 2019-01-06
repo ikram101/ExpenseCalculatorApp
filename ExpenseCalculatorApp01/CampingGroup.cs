@@ -36,7 +36,7 @@ namespace ExpenseCalculatorApp
         public decimal GetExpensesPaidPerPerson(int personID)
         {
             var expensesPaidPerPerson = (from p in Participants
-                    .Where(s => s.userId == personID).
+                    .Where(s => s.participantId == personID).
                     SelectMany(s => s.paymentList)
                                          select p).Sum();
 
