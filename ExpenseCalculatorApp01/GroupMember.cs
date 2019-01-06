@@ -14,9 +14,9 @@ namespace ExpenseCalculatorApp
 
         public List<decimal> paymentList { get;  set; }
 
-        public GroupMember(int UserId, int NoOfBills, List<decimal> PaymentList)
+        public GroupMember(int MemberId, int NoOfBills, List<decimal> PaymentList)
         {
-            memberId = UserId;
+            memberId = MemberId;
             noOfBills = NoOfBills;
             paymentList = PaymentList;
         }
