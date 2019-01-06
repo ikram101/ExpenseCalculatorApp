@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 namespace ExpenseCalculatorApp
 {
      
-    public class GroupParticipant
+    public class GroupMember
     {
-        public int participantId { get; set; }
+        public int memberId { get; set; }
         public int noOfBills { get; set; }
 
         public List<decimal> paymentList { get;  set; }
 
-        public GroupParticipant(int UserId, int NoOfBills, List<decimal> PaymentList)
+        public GroupMember(int UserId, int NoOfBills, List<decimal> PaymentList)
         {
-            participantId = UserId;
+            memberId = UserId;
             noOfBills = NoOfBills;
             paymentList = PaymentList;
         }

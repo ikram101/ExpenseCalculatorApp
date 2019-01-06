@@ -26,8 +26,8 @@ namespace ExpenseCalculatorApp
                     int noOfBillsPaid = Convert.ToInt32(fileContentList[index].ToString());
                     List<string> paymentList = fileContentList.GetRange(++index, noOfBillsPaid);
 
-                    var participant = new GroupParticipant(j, noOfBillsPaid, paymentList.Select(decimal.Parse).ToList());
-                    group.Participants.Add(participant);
+                    var participant = new GroupMember(j, noOfBillsPaid, paymentList.Select(decimal.Parse).ToList());
+                    group.groupMembers.Add(participant);
 
                     index = index + noOfBillsPaid;
                 }

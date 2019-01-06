@@ -9,17 +9,17 @@ namespace ExpenseCalculatorApp
     public class CampingGroup
     {
         public int numberOfParticipant { get; set; }
-        public List<GroupParticipant> Participants { get; set; }
+        public List<GroupMember> groupMembers { get; set; }
 
         public CampingGroup(int numberOfPeople)
         {
             numberOfParticipant = numberOfPeople;
-            Participants = new List<GroupParticipant>();
+            groupMembers = new List<GroupMember>();
         }
 
         public decimal GetTotalExpenses()
         {
-            var totalExpenses = (from p in Participants
+            var totalExpenses = (from p in groupMembers
                                  from i in p.paymentList
                                  select i).Sum();
             return totalExpenses;
@@ -27,7 +27,7 @@ namespace ExpenseCalculatorApp
 
         public decimal GetAvgExpenses()
         {
-            var avg = ((from p in Participants
+            var avg = ((from p in groupMembers
                         from i in p.paymentList
                         select i).Sum()) / this.numberOfParticipant;
             return avg;
@@ -35,8 +35,8 @@ namespace ExpenseCalculatorApp
 
         public decimal GetExpensesPaidPerPerson(int personID)
         {
-            var expensesPaidPerPerson = (from p in Participants
-                    .Where(s => s.participantId == personID).
+            var expensesPaidPerPerson = (from p in groupMembers
+                    .Where(s => s.memberId == personID).
                     SelectMany(s => s.paymentList)
                                          select p).Sum();
 
