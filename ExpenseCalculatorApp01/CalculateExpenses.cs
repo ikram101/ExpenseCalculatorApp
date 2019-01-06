@@ -9,14 +9,12 @@ namespace ExpenseCalculatorApp
     public class CalculateExpenses
     {
         public static int index = 0;
-
         public static List<CampingGroup> ProcessCampingGroups(List<string> fileContentList)
         {
             List<CampingGroup> groups = new List<CampingGroup>(); ;
 
             for (int i = 0; i < (fileContentList.Count - 1); i = index)
             {
-
                 int noOfPeople = Convert.ToInt32(fileContentList[index].ToString());
                 CampingGroup group = new CampingGroup(noOfPeople);
 

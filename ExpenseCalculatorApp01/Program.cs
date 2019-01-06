@@ -21,6 +21,8 @@ namespace ExpenseCalculatorApp
             {
                 List<string> fileContent = FileHelper.ReadFileLineByLine(lineRead);
                 List<CampingGroup> campingGroupList = CalculateExpenses.ProcessCampingGroups(fileContent);
+
+                FileHelper.WriteFile(campingGroupList);
             }
 
             else
@@ -35,3 +37,18 @@ namespace ExpenseCalculatorApp
 
 
 }
+
+
+
+//                foreach (var g in campingGroupList)
+//                {
+//                    var totalExp = g.GetTotalExpenses();
+//var avg = g.GetAvgExpenses();
+
+//decimal expensePaidPerPerson = 0;
+//                    foreach (var p in g.Participants)
+//                    {
+//                        expensePaidPerPerson = g.GetExpensesPaidPerPerson(p.userId);
+//                        var amountOwned = g.GetAmountOwedPerPerson(p.userId);
+//                    }
+//                }

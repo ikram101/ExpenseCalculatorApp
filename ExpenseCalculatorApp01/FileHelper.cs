@@ -15,9 +15,7 @@ namespace ExpenseCalculatorApp
             string line;
 
             string path = Path.Combine(Directory.GetCurrentDirectory(), @"Input\" + fileName);
-
             System.IO.StreamReader file = new System.IO.StreamReader(path);
-
             List<string> myList = new List<string>();
 
             while ((line = file.ReadLine()) != null)
@@ -29,6 +27,28 @@ namespace ExpenseCalculatorApp
             file.Close();
 
             return myList;
+        }
+
+
+        public static void WriteFile(IList<CampingGroup> groups)
+        {
+            var path = Path.Combine(Directory.GetCurrentDirectory(), @"CampingDemo.txt.out");
+            using (TextWriter tw = new StreamWriter(path))
+            {
+                foreach (CampingGroup group in groups)
+                {
+                    WritePesonExpense(group, tw);
+                    tw.WriteLine("");
+                }
+            }
+        }
+
+        public static void WritePesonExpense(CampingGroup group, TextWriter tw)
+        {
+            for (var person = 1; person <= group.numberOfParticipant; person++)
+            {
+                tw.WriteLine(group.GetAmountOwedPerPerson(person) > 0 ? "$" + group.GetAmountOwedPerPerson(person).ToString() : string.Format("(${0})", Math.Abs(group.GetAmountOwedPerPerson(person)).ToString()));
+            }
         }
     }
 }
