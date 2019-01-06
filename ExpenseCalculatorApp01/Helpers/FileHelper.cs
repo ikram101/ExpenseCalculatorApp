@@ -32,7 +32,7 @@ namespace ExpenseCalculatorApp
 
         public static void WriteFile(IList<CampingGroup> groups)
         {
-            var path = Path.Combine(Directory.GetCurrentDirectory(), @"CampingDemo.txt.out");
+            var path = Path.Combine(Directory.GetCurrentDirectory(), @"CampingTrips.txt.out");
             using (TextWriter tw = new StreamWriter(path))
             {
                 foreach (CampingGroup group in groups)
