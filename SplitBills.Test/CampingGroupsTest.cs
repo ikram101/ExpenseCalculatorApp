@@ -16,14 +16,14 @@ namespace SplitBills.Test
             //act
             var campingTrip = new CampingGroup(2);
 
-            campingTrip.Participants.Add(new GroupParticipant(1, 1, new List<decimal> { 0.50m }));
-            campingTrip.Participants.Add(new GroupParticipant(1, 1, new List<decimal> { 0.5m }));
-            campingTrip.Participants.Add(new GroupParticipant(2, 1, new List<decimal> { 1.50m }));
-            campingTrip.Participants.Add(new GroupParticipant(2, 1, new List<decimal> { 99m }));
+            campingTrip.Participants.Add(new GroupParticipant(1, 1, new List<decimal> { 1.50m }));
+            campingTrip.Participants.Add(new GroupParticipant(1, 1, new List<decimal> { 21.5m }));
+            campingTrip.Participants.Add(new GroupParticipant(2, 1, new List<decimal> { 13.50m }));
+            campingTrip.Participants.Add(new GroupParticipant(2, 1, new List<decimal> { 25m }));
 
             //assert
             Assert.AreEqual(campingTrip.numberOfParticipant, 2);
-            Assert.AreEqual(campingTrip.GetTotalExpenses(), 101.5m);
+            Assert.AreEqual(campingTrip.GetTotalExpenses(), 61.5m);
         }
 
 

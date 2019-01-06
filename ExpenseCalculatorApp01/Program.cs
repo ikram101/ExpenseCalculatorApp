@@ -12,10 +12,9 @@ namespace ExpenseCalculatorApp
         static void Main(string[] args)
         {
             //FileHelper.ReadFileLineByLine("Trip.txt");
-            //Console.WriteLine("Enter Filename");
-            //var lineRead = Console.ReadLine();
 
-            var lineRead = "CampingTrips.txt";
+            Console.WriteLine("Enter Filename");
+            var lineRead = Console.ReadLine();
 
             if (!string.IsNullOrEmpty(lineRead))
             {
@@ -27,7 +26,7 @@ namespace ExpenseCalculatorApp
 
             else
             {
-                Console.WriteLine("Filename Entered Invalid");
+                Console.WriteLine("Filename is Invalid.Please try again.");
             }
         }
 
