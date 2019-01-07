@@ -18,16 +18,16 @@ namespace ExpenseCalculatorApp
             string path = Path.Combine(rootFolderPath, @"InputOutput\" + fileName);
 
             System.IO.StreamReader file = new System.IO.StreamReader(path);
-            List<string> myList = new List<string>();
+            List<string> fileContentList = new List<string>();
 
             while ((line = file.ReadLine()) != null)
             {
-                myList.Add(line);
+                fileContentList.Add(line);
                 counter++;
             }
 
             file.Close();
-            return myList;
+            return fileContentList;
         }
 
         public static void WriteFile(IList<CampingGroup> groups)

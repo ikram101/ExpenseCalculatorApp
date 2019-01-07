@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLogic\CalculateExpenses.cs" />
-    <Compile Include="Entities\GroupMember.cs" />
+    <Compile Include="Entities\GroupParticipant.cs" />
     <Compile Include="Helpers\FileHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

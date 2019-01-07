@@ -9,17 +9,17 @@ namespace ExpenseCalculatorApp
     public class CampingGroup
     {
         public int numberOfParticipant { get; set; }
-        public List<GroupMember> groupMembers { get; set; }
+        public List<GroupParticipant> groupParticipants { get; set; }
 
         public CampingGroup(int numberOfPeople)
         {
             numberOfParticipant = numberOfPeople;
-            groupMembers = new List<GroupMember>();
+            groupParticipants = new List<GroupParticipant>();
         }
 
         public decimal GetTotalExpenses()
         {
-            var totalExpenses = (from p in groupMembers
+            var totalExpenses = (from p in groupParticipants
                                  from i in p.paymentList
                                  select i).Sum();
             return totalExpenses;
@@ -27,25 +27,25 @@ namespace ExpenseCalculatorApp
 
         public decimal GetAvgExpenses()
         {
-            var avg = ((from p in groupMembers
+            var avg = ((from p in groupParticipants
                         from i in p.paymentList
                         select i).Sum()) / this.numberOfParticipant;
             return avg;
         }
 
-        public decimal GetExpensesPaidPerPerson(int personID)
+        public decimal GetExpensesPaidPerPerson(int participantId)
         {
-            var expensesPaidPerPerson = (from p in groupMembers
-                    .Where(s => s.memberId == personID).
+            var expensesPaidPerPerson = (from p in groupParticipants
+                    .Where(s => s.memberId == participantId).
                     SelectMany(s => s.paymentList)
                                          select p).Sum();
 
             return expensesPaidPerPerson;
         }
 
-        public decimal GetAmountOwedPerPerson(int personID)
+        public decimal GetAmountOwedPerPerson(int participantId)
         {
-            return decimal.Round(GetAvgExpenses() - GetExpensesPaidPerPerson(personID), 2, MidpointRounding.AwayFromZero);
+            return decimal.Round(GetAvgExpenses() - GetExpensesPaidPerPerson(participantId), 2, MidpointRounding.AwayFromZero);
         }
     }
 

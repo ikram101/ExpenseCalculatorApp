@@ -13,16 +13,16 @@ namespace SplitBills.Test
         public void TotalExpenses_ShouldReturnTotalPerTrip()
         {
             //act
-            var campingTrip = new CampingGroup(2);
+            var campingGroup = new CampingGroup(2);
 
-            campingTrip.groupMembers.Add(new GroupMember(1, 1, new List<decimal> { 1.50m }));
-            campingTrip.groupMembers.Add(new GroupMember(1, 1, new List<decimal> { 21.5m }));
-            campingTrip.groupMembers.Add(new GroupMember(2, 1, new List<decimal> { 13.50m }));
-            campingTrip.groupMembers.Add(new GroupMember(2, 1, new List<decimal> { 25m }));
+            campingGroup.groupParticipants.Add(new GroupParticipant(1, new List<decimal> { 1.50m }));
+            campingGroup.groupParticipants.Add(new GroupParticipant(1, new List<decimal> { 21.5m }));
+            campingGroup.groupParticipants.Add(new GroupParticipant(2, new List<decimal> { 13.50m }));
+            campingGroup.groupParticipants.Add(new GroupParticipant(2, new List<decimal> { 25m }));
 
             //assert
-            Assert.AreEqual(campingTrip.numberOfParticipant, 2);
-            Assert.AreEqual(campingTrip.GetTotalExpenses(), 61.5m);
+            Assert.AreEqual(campingGroup.numberOfParticipant, 2);
+            Assert.AreEqual(campingGroup.GetTotalExpenses(), 61.5m);
         }
 
     }
